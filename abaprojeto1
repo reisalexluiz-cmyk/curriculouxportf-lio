@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estudo de Caso de UX/UI - Ana Beatriz da Cunha Reis">
+    <title>Case de Estudo: App de Viagens | Ana Beatriz da Cunha Reis</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --accent: #2b5cff;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background-color: var(--bg-color); 
+        }
+
+        /* CORREÇÃO DAS IMAGENS */
+        img {
+            max-width: 100%; 
+            height: auto;    
+            display: block;  
+            margin: 2rem 0;  
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 5%;
+            background-color: #ffffff;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            border-bottom: 1px solid var(--border-color);
+            background-color: #ffffff;
+        }
+
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            padding: 1rem 5%;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover { color: var(--accent); }
+
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 3rem 5%; 
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--text-main);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .btn-back:hover { text-decoration: underline; }
+
+        .hero { margin-bottom: 3rem; }
+        
+        h1 { font-size: 2.5rem; line-height: 1.2; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); letter-spacing: -0.02em; }
+        h2 { font-size: 1.8rem; font-weight: 700; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-top: 4rem; margin-bottom: 1.5rem; display: inline-block; color: var(--text-main); }
+        h3 { font-size: 1.3rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.5rem; color: var(--text-main); }
+        
+        p { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-muted); }
+        strong { color: var(--text-main); }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .meta-item strong { display: block; font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+        .meta-item span { color: var(--text-muted); font-size: 0.95rem; }
+
+        .persona-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .persona-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .persona-info h3 { margin-top: 0; margin-bottom: 0.25rem; font-size: 1.5rem; }
+        .persona-info p { margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted); }
+        
+        .badge-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .badge { background: transparent; border: 1px solid var(--border-color); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+        
+        .persona-section-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main); }
+        
+        ul { list-style-type: none; margin-bottom: 1.5rem; padding-left: 0; }
+        ul li { position: relative; padding-left: 1.25rem; margin-bottom: 0.5rem; font-size: 1rem; color: var(--text-muted); }
+        ul li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        
+        .frustrations-list li::before { color: #ef4444; }
+
+        .insight-box {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .insight-box h4 { margin-bottom: 0.5rem; margin-top: 0; color: var(--text-main); font-size: 1.1rem; font-weight: 700; }
+        .insight-box p { color: var(--text-muted); font-size: 1rem; margin-bottom: 0.5rem; }
+        .insight-box p:last-child { margin-bottom: 0; }
+
+        .image-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2.5rem 0; }
+        .image-grid-2 img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color); }
+
+        .video-wrapper { max-width: 320px; margin: 3rem auto; text-align: center; }
+        .video-wrapper video { width: 100%; border-radius: 8px; border: 1px solid var(--border-color); aspect-ratio: 9 / 16; object-fit: cover; background-color: #000; }
+        .video-caption { display: block; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); }
+
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .metric-card { border: 1px solid var(--border-color); background-color: var(--card-bg); padding: 2rem 1.5rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .metric-value { font-size: 2.5rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+        .metric-label { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+
+        .btn-primary { display: inline-block; background-color: var(--text-main); color: #fff; padding: 0.8rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 700; margin-top: 1rem; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.9rem; transition: background-color 0.2s; }
+        .btn-primary:hover { background-color: var(--accent); }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .grid-2, .image-grid-2, .meta-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div>
+                <strong>Ana Beatriz Reis</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">UX Designer & Designer Gráfico</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="menu.html" class="nav-link">CURRÍCULO</a></li>
+                <li><a href="abaprojeto.html" class="nav-link">PROJETO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="Meusprojetos.html" class="btn-back">← Voltar</a>
+        <section class="hero">
+            <span class="tag">UX/UI Case Study</span>
+            <h1>App de Viagens: Personalização para Escalar Engajamento</h1>
+            <p>Desenvolvimento estratégico de um aplicativo de planejamento de viagens focado em unificar a jornada, reduzir o atrito operacional e otimizar a conversão de novos usuários por meio de rotinas personalizadas.</p>
+        </section>
+
+        <img src="assets/mockupprojectux.webp" alt="Mockup do App Tripsync" class="hero-img">
+
+        <div class="meta-grid">
+            <div class="meta-item">
+                <strong>Papel</strong>
+                <span>UX/UI Designer (Pesquisa, UI e Entrevistas)</span>
+            </div>
+            <div class="meta-item">
+                <strong>Duração</strong>
+                <span>6 Meses (Mai 2024 - Out 2025)</span>
+            </div>
+            <div class="meta-item">
+                <strong>Plataforma</strong>
+                <span>Mobile (iOS / Android)</span>
+            </div>
+            <div class="meta-item">
+                <strong>Ferramentas</strong>
+                <span>Figma, Miro, Notion</span>
+            </div>
+        </div>
+
+        <section>
+            <h2>O Contexto &amp; O Desafio</h2>
+            <p>Coordenar transportes, hospedagens e atividades locais em um único ecossistema fluido continua sendo um gargalo crônico no mercado de turismo. Dados do Google apontam que aproximadamente 70% dos turistas reportam estresse no planejamento de rotas complexas. O desafio de negócio consistiu em mitigar essa fricção unificando as etapas de agendamento e gerenciamento em uma solução adaptável de zero fricção.</p>
+        </section>
+
+        <section>
+            <h2>Discovery &amp; Pesquisa</h2>
+            <p>O processo de discovery mapeou o fluxo comportamental do usuário desde o gatilho inicial até a execução física do roteiro. O objetivo foi diagnosticar os principais pontos de quebra na experiência digital e entender os fatores críticos de abandono de plataformas tradicionais.</p>
+            
+            <h3>Problem Statement</h3>
+            <p>No cenário atual, a experiência e a autonomia possuem maior peso na decisão de compra do que o custo bruto. Plataformas inflexíveis e processos excessivamente burocráticos geram quebra de expectativa e consequente churn no primeiro ciclo de uso.</p>
+            
+            <h3>A Jornada Digital do Consumidor</h3>
+            <p>O planejamento de viagens tornou-se uma experiência digital, com 97% dos participantes utilizando a internet e aplicativos para organizar suas viagens.</p>
+            
+            <h3>Problema a Ser Resolvido</h3>
+            <p>A ausência de um produto digital centralizado capaz de processar o histórico do viajante e gerar personalização em tempo real de acordo com as variáveis dinâmicas da viagem.</p>
+        </section>
+        <section>
+            <h2>Pesquisa Qualitativa</h2>
+            <p>Utilizamos algumas ferramentas para a estruturação da solução, as principais foram a matriz CSD com Mapa relacional para verificar as principais necessidadas do modelo e o Business model canvas com Análise SWOT para formular, mensurar o desenvolvimento e analisar estratégicamente os pontos positivos e negativos para o growth do app;</p>
+                <img src="assets/Matriz CSD.png" alt=" Passo 1 da Matriz CSD">
+                <img src="assets/Matriz CSD 2.png" alt="Passo 2 da Matriz CSD">
+                <img src="assets/Hipotese e Duvidas 1.png" alt="Passo 2 da Matriz CSD">
+        </section>
+
+
+        <section>
+            <h2>Persona Central</h2>
+            <p>O desenvolvimento da arquitetura e das interfaces foi orientado pelo perfil de Paula Martins, representando o segmento de usuários de alta exigência operacional que necessita de previsibilidade de dados combinada à flexibilidade logística.</p>
+
+            <div class="persona-card">
+                <div class="persona-header">
+                    <div class="persona-info">
+                        <h3>Paula Martins, 28 anos</h3>
+                        <p>Gerente de Banco | São Paulo - SP</p>
+                        <div class="badge-container">
+                            <span class="badge">#Detalhista</span>
+                            <span class="badge">#Econômica</span>
+                            <span class="badge">#Exploradora</span>
+                            <span class="badge">#Adaptável</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.95rem;"><strong>Biografia:</strong> Profissional do setor financeiro com rotina corporativa intensa. Busca otimização rígida de tempo e custos nas viagens, demandando interfaces que absorvam imprevistos logísticos de maneira ágil.</p>
+
+                <div class="grid-2">
+                    <div>
+                        <div class="persona-section-title">Motivações</div>
+                        <ul>
+                            <li>Explorar atividades e imersões de valor local genuíno.</li>
+                            <li>Equilíbrio claro entre eficiência financeira e qualidade do serviço.</li>
+                            <li>Maximizar o aproveitamento cronológico das janelas de viagem.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="persona-section-title">Frustrações</div>
+                        <ul class="frustrations-list"> 
+                            <li>Roteiros tradicionais inflexíveis a imprevistos operacionais.</li>
+                            <li>Falta de transparência e surgimento de custos ocultos.</li>
+                            <li>Fricção no ajuste de cronogramas de última hora.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="insight-box">
+                    <h4>Direcionamento Estratégico</h4>
+                    <p><strong>1. Personalização Orientada a Dados:</strong> Recomendações preditivas baseadas no entorno geográfico imediato e no perfil de consumo histórico.</p>
+                    <p><strong>2. Flexibilidade Operacional:</strong> Arquitetura de interface focada em alteração ágil de rotas com reajuste automático de cronogramas para mitigar estresse cognitivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ideação e Conceituação</h2>
+            <p>O fluxo de trabalho partiu de mapeamentos funcionais e sketches analógicos direcionados ao controle de gastos integrados e simplificação de burocracias do mercado turístico, validando hipóteses antes de avançar para a interface final.</p>
+
+            <div class="image-grid-2">
+                <img src="assets/sketchs 1.webp" alt="Sketch Conceitual - Fluxo Operacional">
+                <img src="assets/sketchs 2.webp" alt="Sketch Conceitual - Controle e Gestão">
+            </div>
+            
+            <h3>Validação de Fluxo Visual</h3>
+            
+            <div class="video-wrapper">
+                <video width="100%" autoplay loop muted playsinline controls>
+                    <source src="assets/Sketch aplicativo de organização de viagens.mp4" type="video/mp4">
+                </video>
+                <span class="video-caption">Ideação e Teste de Fluxo de Média Fidelidade (Sketch)</span>
+            </div>
+
+            <h2>Design Visual e UI: Da Estratégia à Execução</h2>
+            <p>O desenvolvimento avançou diretamente para os <strong>wireframes de média e alta fidelidade</strong> no Figma, eliminando suposições estéticas e estruturando uma biblioteca de componentes consistentes. O layout limpo, focado em forte hierarquia tipográfica, garante navegação imediata e usabilidade limpa alinhada aos objetivos de negócio.</p>
+            <img src="assets/idv.webp" alt="Identidade Visual Tripsync">
+
+            <div class="video-wrapper">
+                <video width="100%" autoplay loop muted playsinline controls>
+                    <source src="assets/Wireframe e prototipo.mp4" type="video/mp4">
+                </video>
+                <span class="video-caption">Wireframe e protótipo do aplicativo Tripsync</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Testes</h2>
+            <p>Os testes de usabilidade foram conduzidos com base no questionário e nas entrevistas, utilizando os insights do perfil da persona Paula Martins (28 anos, Gerente de Banco, exploradora). O processo de descoberta da persona, focado em otimizar custos e produtividade, tornou-se essencial para a criação dos sketch wireframes e protótipos.<br>
+            <Strong>Objetivo dos Testes:</Strong> Validar se a solução Tripsync consegue resolver as dores identificadas, principalmente as relacionadas ao estresse e ao desperdício de tempo na organização do roteiro.
+            </p>
+            <h2>Descobertas e Iterações</h2>
+            <img src="assets/Descobertas e Iterações.png" alt="Mapa da Jornada do Usuário">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">+45%</div>
+                    <div class="metric-label">Taxa de Conversão</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">-30%</div>
+                    <div class="metric-label">Churn no Onboarding</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Conformidade WCAG AA</div>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 5rem; margin-bottom: 2rem; text-align: center;">
+            <h2 style="border: none; margin-bottom: 0.5rem;">Gostou do projeto?</h2>
+            <a href="mailto:anabea.reis220@gmail.com" class="btn-primary">Entre em Contato</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ana Beatriz da Cunha Reis. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
