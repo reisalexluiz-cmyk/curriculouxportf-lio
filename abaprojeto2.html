@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estudo de Caso de UX/UI - Alexandre Luiz da Cunha Reis">
-    <title>Case de Estudo: App de Viagens | Alexandre Luiz  da Cunha Reis</title>
+    <title>Case de Estudo: Academia de Bairro | Ana Beatriz da Cunha Reis</title>
     <style>
         :root {
             --bg-color: #fcfcfc;
@@ -12,24 +11,22 @@
             --text-muted: #555555;
             --accent: #2b5cff;
             --border-color: #e0e0e0;
-            --card-bg: #ffffff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
-            color: var(--text-main); 
-            background-color: var(--bg-color); 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
         }
 
-        /* CORREÇÃO DAS IMAGENS */
         img {
-            max-width: 100%; 
-            height: auto;    
-            display: block;  
-            margin: 2rem 0;  
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem 0;
         }
 
         header {
@@ -46,41 +43,21 @@
             align-items: center;
         }
 
-        .navbar {
-            border-bottom: 1px solid var(--border-color);
-            background-color: #ffffff;
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
         }
 
-        .nav-container {
+        h1 { font-size: 2.5rem; line-height: 1.2; }
+        h2 { font-size: 1.8rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block; }
+        h3 { font-size: 1.3rem; }
+
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            display: flex;
-            justify-content: flex-start;
-            padding: 1rem 5%;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: color 0.2s ease;
-        }
-
-        .nav-link:hover { color: var(--accent); }
-
-        .container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 3rem 5%; 
+            padding: 2rem 5%;
         }
 
         .tag {
@@ -96,101 +73,121 @@
             letter-spacing: 0.5px;
         }
 
-        .btn-back {
-            display: inline-block;
+        p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
             margin-bottom: 2rem;
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
+            padding-left: 1.5rem;
         }
-        
-        .btn-back:hover { text-decoration: underline; }
 
-        .hero { margin-bottom: 3rem; }
-        
-        h1 { font-size: 2.5rem; line-height: 1.2; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); letter-spacing: -0.02em; }
-        h2 { font-size: 1.8rem; font-weight: 700; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-top: 4rem; margin-bottom: 1.5rem; display: inline-block; color: var(--text-main); }
-        h3 { font-size: 1.3rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.5rem; color: var(--text-main); }
-        
-        p { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-muted); }
-        strong { color: var(--text-main); }
+        li {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
 
-        .hero-img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .card {
+            background: #ffffff;
             border: 1px solid var(--border-color);
-            margin-bottom: 3rem;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
-        .meta-grid {
+        .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
-        .meta-item strong { display: block; font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
-        .meta-item span { color: var(--text-muted); font-size: 0.95rem; }
-
-        .persona-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        .btn-back {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        .persona-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-        .persona-info h3 { margin-top: 0; margin-bottom: 0.25rem; font-size: 1.5rem; }
-        .persona-info p { margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted); }
-        
-        .badge-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-        .badge { background: transparent; border: 1px solid var(--border-color); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
 
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-        
-        .persona-section-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main); }
-        
-        ul { list-style-type: none; margin-bottom: 1.5rem; padding-left: 0; }
-        ul li { position: relative; padding-left: 1.25rem; margin-bottom: 0.5rem; font-size: 1rem; color: var(--text-muted); }
-        ul li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-        
-        .frustrations-list li::before { color: #ef4444; }
+        .process-step {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            position: relative;
+        }
 
-        .insight-box {
-            background-color: #f8fafc;
+        .process-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #f0f4ff;
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem auto;
+        }
+
+        .process-step h4 {
+            color: var(--text-main);
+            margin: 0 0 0.5rem 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .process-step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--text-main);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .process-grid { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
+
+        .quote {
+            font-style: italic;
             border-left: 4px solid var(--accent);
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border-radius: 0 8px 8px 0;
+            padding-left: 1rem;
+            margin: 2rem 0;
+            color: var(--text-main);
+            font-size: 1.2rem;
         }
-
-        .insight-box h4 { margin-bottom: 0.5rem; margin-top: 0; color: var(--text-main); font-size: 1.1rem; font-weight: 700; }
-        .insight-box p { color: var(--text-muted); font-size: 1rem; margin-bottom: 0.5rem; }
-        .insight-box p:last-child { margin-bottom: 0; }
-
-        .image-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2.5rem 0; }
-        .image-grid-2 img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color); }
-
-        .video-wrapper { max-width: 320px; margin: 3rem auto; text-align: center; }
-        .video-wrapper video { width: 100%; border-radius: 8px; border: 1px solid var(--border-color); aspect-ratio: 9 / 16; object-fit: cover; background-color: #000; }
-        .video-caption { display: block; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); }
-
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .metric-card { border: 1px solid var(--border-color); background-color: var(--card-bg); padding: 2rem 1.5rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .metric-value { font-size: 2.5rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
-        .metric-label { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
-
-        .btn-primary { display: inline-block; background-color: var(--text-main); color: #fff; padding: 0.8rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 700; margin-top: 1rem; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.9rem; transition: background-color 0.2s; }
-        .btn-primary:hover { background-color: var(--accent); }
 
         footer {
             text-align: center;
@@ -199,11 +196,6 @@
             margin-top: 4rem;
             color: var(--text-muted);
         }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .grid-2, .image-grid-2, .meta-grid { grid-template-columns: 1fr; gap: 1rem; }
-        }
     </style>
 </head>
 <body>
@@ -211,185 +203,151 @@
     <header>
         <div class="header-content">
             <div>
-                <strong>Alexandre Luiz Reis</strong><br>
+                <strong>Ana Beatriz Reis</strong><br>
                 <span style="color: var(--text-muted); font-size: 0.9rem;">UX Designer & Designer Gráfico</span>
+            </div>
+            <div>
+                <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Contato</a>
             </div>
         </div>
     </header>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">CURRÍCULO</a></li>
-                <li><a href="abaprojeto.html" class="nav-link">PROJETO</a></li>
+    <main class="container">
+        <a href="Meusprojetos.html" class="btn-back">← Voltar</a><br>
+        <br>
+        <span class="tag">UX/UI Case Study</span>
+        <h1>Desenvolvendo Solução para Academia de Bairro</h1>
+        <p>Um projeto de design centrado no humano que transforma a experiência digital de academias locais. O foco foi substituir métricas de vaidade por conversão real e retenção de alunos, colocando o acolhimento e o pertencimento no centro da solução.</p>
+
+        <section>
+            <h2>O Desafio e o Problema de Negócio</h2>
+            <p>Academias de bairro enfrentam altas taxas de cancelamento. A análise revelou que o churn não é causado apenas por "falta de disciplina" dos alunos, mas por uma experiência intimidante e despersonalizada. A alta carga cognitiva, a falta de suporte nos horários de pico e a dependência intimidante de instrutores escassos geram a sensação de "invisibilidade".</p>
+            <div class="quote">
+                "A quebra de expectativa é o principal gatilho do cancelamento. O aluno chega com expectativa e sai com a sensação de que não pertence àquele espaço."
+            </div>
+            <p><strong>A Pergunta-Chave:</strong> Como transformar a transição físico-digital em uma experiência acolhedora, replicando o sentimento de pertencimento do bairro em uma interface mobile que atue como suporte personalizado e promova o ROI da academia?</p>
+        </section>
+
+        <section class="card">
+            <h2>Pesquisa e Persona</h2>
+            <div class="quote" style="margin-top: 0; font-size: 1.1rem;">
+                "Quero treinar com eficiência e autonomia sem comprometer meu trabalho e estudos."
+            </div>
+            <div class="grid-2">
+                <div>
+                    <h3>Matheus, 22 anos</h3>
+                    <p><strong>Biografia:</strong> Matheus é um jovem da era digital que busca agilidade e independência. Ele valoriza ferramentas que permitam a execução de tarefas sem a necessidade constante de um intermediário humano, preferindo o suporte tecnológico para guiar seu progresso.</p>
+                    <p><strong>Perfil Profissional e Acadêmico:</strong> Trabalha meio período como assistente administrativo em um escritório de contabilidade e dedica o restante do dia aos estudos.</p>
+                    <p><strong>Rotina de Treino:</strong> Possui uma janela de tempo muito restrita, frequentando a academia geralmente por apenas 1 hora, das 20h às 21h.</p>
+                </div>
+                <div>
+                    <h3>Dores e Frustrações</h3>
+                    <ul>
+                        <li><strong>Falta de Suporte:</strong> Sente que a academia não oferece o suporte necessário para otimizar seu treino individualmente.</li>
+                        <li><strong>Dependência Intimidante:</strong> Frustra-se por ter que chamar o professor a cada dúvida, o que consome o pouco tempo que ele tem disponível para treinar.</li>
+                        <li><strong>Sensação de Invisibilidade:</strong> Como aluno que treina em horários de pico e por pouco tempo, ele pode se sentir "perdido" ou "incapaz" sem uma orientação clara.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Estratégia: Design Emocional</h2>
+            <p>Diferente de apps que focam apenas em performance tecnológica, a estratégia foi desenhada sobre quatro pilares para impulsionar a retenção e o valor da marca:</p>
+            <ul>
+                <li><strong>Clareza Cognitiva:</strong> Redução de ruído visual para não sobrecarregar o usuário.</li>
+                <li><strong>Motivação Comportamental:</strong> Metas visuais e streaks gerando satisfação e aumentando a retenção.</li>
+                <li><strong>Acolhimento Humano:</strong> Tom de voz empático e onboarding emocional para reduzir ansiedade.</li>
+                <li><strong>Pertencimento:</strong> Gamificação e desafios coletivos para forjar comunidade genuína.</li>
             </ul>
-        </div>
-    </nav>
-
-    <div class="container">
-        <a href="Meusprojetos.html" class="btn-back">← Voltar</a>
-        <section class="hero">
-            <span class="tag">UX/UI Case Study</span>
-            <h1>App de Viagens: Personalização para Escalar Engajamento</h1>
-            <p>Desenvolvimento estratégico de um aplicativo de planejamento de viagens focado em unificar a jornada, reduzir o atrito operacional e otimizar a conversão de novos usuários por meio de rotinas personalizadas.</p>
-        </section>
-
-        <img src="assets/mockupprojectux.webp" alt="Mockup do App Tripsync" class="hero-img">
-
-        <div class="meta-grid">
-            <div class="meta-item">
-                <strong>Papel</strong>
-                <span>UX/UI Designer (Pesquisa, UI e Entrevistas)</span>
-            </div>
-            <div class="meta-item">
-                <strong>Duração</strong>
-                <span>6 Meses (Mai 2024 - Out 2025)</span>
-            </div>
-            <div class="meta-item">
-                <strong>Plataforma</strong>
-                <span>Mobile (iOS / Android)</span>
-            </div>
-            <div class="meta-item">
-                <strong>Ferramentas</strong>
-                <span>Figma, Miro, Notion</span>
-            </div>
-        </div>
-
-        <section>
-            <h2>O Contexto &amp; O Desafio</h2>
-            <p>Coordenar transportes, hospedagens e atividades locais em um único ecossistema fluido continua sendo um gargalo crônico no mercado de turismo. Dados do Google apontam que aproximadamente 70% dos turistas reportam estresse no planejamento de rotas complexas. O desafio de negócio consistiu em mitigar essa fricção unificando as etapas de agendamento e gerenciamento em uma solução adaptável de zero fricção.</p>
         </section>
 
         <section>
-            <h2>Discovery &amp; Pesquisa</h2>
-            <p>O processo de discovery mapeou o fluxo comportamental do usuário desde o gatilho inicial até a execução física do roteiro. O objetivo foi diagnosticar os principais pontos de quebra na experiência digital e entender os fatores críticos de abandono de plataformas tradicionais.</p>
+            <h2>Arquitetura da Informação</h2>
+            <p> Mapa abaixo representa o fluxo completo da interface do aplicativo, desde a página inicial até as funcionalidades mais profundas, organizando a navegação de forma intuitiva e acessível para o usuário.</p>
             
-            <h3>Problem Statement</h3>
-            <p>No cenário atual, a experiência e a autonomia possuem maior peso na decisão de compra do que o custo bruto. Plataformas inflexíveis e processos excessivamente burocráticos geram quebra de expectativa e consequente churn no primeiro ciclo de uso.</p>
-            
-            <h3>A Jornada Digital do Consumidor</h3>
-            <p>O planejamento de viagens tornou-se uma experiência digital, com 97% dos participantes utilizando a internet e aplicativos para organizar suas viagens.</p>
-            
-            <h3>Problema a Ser Resolvido</h3>
-            <p>A ausência de um produto digital centralizado capaz de processar o histórico do viajante e gerar personalização em tempo real de acordo com as variáveis dinâmicas da viagem.</p>
-        </section>
-        <section>
-            <h2>Pesquisa Qualitativa</h2>
-            <p>Utilizamos algumas ferramentas para a estruturação da solução, as principais foram a matriz CSD com Mapa relacional para verificar as principais necessidadas do modelo e o Business model canvas com Análise SWOT para formular, mensurar o desenvolvimento e analisar estratégicamente os pontos positivos e negativos para o growth do app;</p>
-                <img src="assets/Matriz CSD.png" alt=" Passo 1 da Matriz CSD">
-                <img src="assets/Matriz CSD 2.png" alt="Passo 2 da Matriz CSD">
-                <img src="assets/Hipotese e Duvidas 1.png" alt="Passo 2 da Matriz CSD">
+            <div class="card" style="padding: 1rem; margin-top: 1.5rem;">
+                <img src="assets/arquitetura-info.png" alt="Fluxograma detalhando a Arquitetura de Informação e a hierarquia de telas do aplicativo" style="width: 100%; height: auto; margin: 0; border-radius: 4px;">
+            </div>
         </section>
 
-
         <section>
-            <h2>Persona Central</h2>
-            <p>O desenvolvimento da arquitetura e das interfaces foi orientado pelo perfil de Paula Martins, representando o segmento de usuários de alta exigência operacional que necessita de previsibilidade de dados combinada à flexibilidade logística.</p>
-
-            <div class="persona-card">
-                <div class="persona-header">
-                    <div class="persona-info">
-                        <h3>Paula Martins, 28 anos</h3>
-                        <p>Gerente de Banco | São Paulo - SP</p>
-                        <div class="badge-container">
-                            <span class="badge">#Detalhista</span>
-                            <span class="badge">#Econômica</span>
-                            <span class="badge">#Exploradora</span>
-                            <span class="badge">#Adaptável</span>
-                        </div>
-                    </div>
+            <h2>Estrutura do Aplicativo</h2>
+            <p>A arquitetura foi mapeada para garantir que as decisões de navegação fossem lógicas e fundamentadas na redução da carga cognitiva, divididas em duas frentes centrais:</p>
+            
+            <div class="grid-2">
+                <div class="process-step">
+                    <div class="process-icon">1</div>
+                    <h4>Navegação Principal</h4>
+                    <p style="margin-bottom: 0.5rem;"><strong>Página Inicial:</strong> Cronômetro, notificações, sugestões e barra de pesquisa.</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Menu Fixo:</strong> Treinos, Agenda e Conta.</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Perfil:</strong> Nome, plano ativo, acesso ao treino e carteira.</p>
+                    <p><strong>Configurações:</strong> Acessibilidade, termos de acesso e modo escuro.</p>
                 </div>
-
-                <p style="font-size: 0.95rem;"><strong>Biografia:</strong> Profissional do setor financeiro com rotina corporativa intensa. Busca otimização rígida de tempo e custos nas viagens, demandando interfaces que absorvam imprevistos logísticos de maneira ágil.</p>
-
-                <div class="grid-2">
-                    <div>
-                        <div class="persona-section-title">Motivações</div>
-                        <ul>
-                            <li>Explorar atividades e imersões de valor local genuíno.</li>
-                            <li>Equilíbrio claro entre eficiência financeira e qualidade do serviço.</li>
-                            <li>Maximizar o aproveitamento cronológico das janelas de viagem.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="persona-section-title">Frustrações</div>
-                        <ul class="frustrations-list"> 
-                            <li>Roteiros tradicionais inflexíveis a imprevistos operacionais.</li>
-                            <li>Falta de transparência e surgimento de custos ocultos.</li>
-                            <li>Fricção no ajuste de cronogramas de última hora.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="insight-box">
-                    <h4>Direcionamento Estratégico</h4>
-                    <p><strong>1. Personalização Orientada a Dados:</strong> Recomendações preditivas baseadas no entorno geográfico imediato e no perfil de consumo histórico.</p>
-                    <p><strong>2. Flexibilidade Operacional:</strong> Arquitetura de interface focada em alteração ágil de rotas com reajuste automático de cronogramas para mitigar estresse cognitivo.</p>
+                
+                <div class="process-step">
+                    <div class="process-icon">2</div>
+                    <h4>Funcionalidades de Destaque</h4>
+                    <p style="margin-bottom: 0.5rem;"><strong>Planos:</strong> Mensal, semestral, anual e avaliação física.</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Biblioteca:</strong> Barra de pesquisa, filtro inteligente e exercícios.</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Carteira:</strong> Saldo de créditos, forma de pagamento e cartões.</p>
+                    <p><strong>Monte seu treino:</strong> Personalização completa do plano de exercícios.</p>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2>Ideação e Conceituação</h2>
-            <p>O fluxo de trabalho partiu de mapeamentos funcionais e sketches analógicos direcionados ao controle de gastos integrados e simplificação de burocracias do mercado turístico, validando hipóteses antes de avançar para a interface final.</p>
-
-            <div class="image-grid-2">
-                <img src="assets/sketchs 1.webp" alt="Sketch Conceitual - Fluxo Operacional">
-                <img src="assets/sketchs 2.webp" alt="Sketch Conceitual - Controle e Gestão">
-            </div>
+            <h2>Sobre a interface e prototipagem</h2>
+            <p>Os protótipos de baixa fidelidade foram estruturados e evoluídos com base em fundamentos sólidos de ergonomia cognitiva e design de interface, garantindo usabilidade e acessibilidade (a11y).</p>
             
-            <h3>Validação de Fluxo Visual</h3>
+            <img src="assets/academiaproto1.png" alt="Protótipo de baixa fidelidade - Etapa 1">
+
+            <div class="card">
+                <h3>1. Consistência Visual e Gestalt</h3>
+                <p>A transição de traços irregulares para wireframes limpos reduziu a carga mental (Lei da Constância). O alinhamento ortogonal e o agrupamento lógico (Lei da Proximidade) respeitam o modelo mental dos usuários em dispositivos móveis, facilitando a navegação na Arquitetura de Informação.</p>
+
+                <h3>2. Acessibilidade (WCAG)</h3>
+                <p>A inclusão explícita de controles para <strong>Modo Escuro</strong> e escalonamento de <strong>Tamanho da Fonte (80% a 200%)</strong> atende critérios diretos de acessibilidade para usuários com baixa visão ou fadiga ocular.</p>
+
+                <h3>3. Visibilidade do Status do Sistema</h3>
+                <p>Aplicação direta da Primeira Heurística de Nielsen: uso de ícones universais combinados com rótulos de texto e indicadores de carrossel para fornecer feedback imediato sobre o estado atual do aplicativo.</p>
+
+                <h3>4. Affordance Tátil e Lei de Fitts</h3>
+                <p>Botões e campos de ação consolidados em formatos *pill-shaped* claros, oferecendo *affordance* óbvia. Alvos de toque (touch targets) foram redimensionados para prevenir erros e posicionados próximos à "Thumb Zone" (área do polegar), minimizando o tempo de movimento e o esforço motor (Lei de Fitts).</p>
+
+                <h3>5. Efeito de Posição Serial</h3>
+                <p>Ações e ícones cruciais (como Home e Perfil) foram posicionados nas extremidades da barra de navegação, explorando os efeitos de primazia e recência da psicologia cognitiva para facilitar a memorização espacial.</p>
             
-            <div class="video-wrapper">
-                <video width="100%" autoplay loop muted playsinline controls>
-                    <source src="assets/Sketch aplicativo de organização de viagens.mp4" type="video/mp4">
-                </video>
-                <span class="video-caption">Ideação e Teste de Fluxo de Média Fidelidade (Sketch)</span>
-            </div>
-
-            <h2>Design Visual e UI: Da Estratégia à Execução</h2>
-            <p>O desenvolvimento avançou diretamente para os <strong>wireframes de média e alta fidelidade</strong> no Figma, eliminando suposições estéticas e estruturando uma biblioteca de componentes consistentes. O layout limpo, focado em forte hierarquia tipográfica, garante navegação imediata e usabilidade limpa alinhada aos objetivos de negócio.</p>
-            <img src="assets/idv.webp" alt="Identidade Visual Tripsync">
-
-            <div class="video-wrapper">
-                <video width="100%" autoplay loop muted playsinline controls>
-                    <source src="assets/Wireframe e prototipo.mp4" type="video/mp4">
-                </video>
-                <span class="video-caption">Wireframe e protótipo do aplicativo Tripsync</span>
+                <img src="assets/academiaproto2.png" alt="Protótipo de baixa fidelidade - Etapa 2">
             </div>
         </section>
 
-        <section>
-            <h2>Testes</h2>
-            <p>Os testes de usabilidade foram conduzidos com base no questionário e nas entrevistas, utilizando os insights do perfil da persona Paula Martins (28 anos, Gerente de Banco, exploradora). O processo de descoberta da persona, focado em otimizar custos e produtividade, tornou-se essencial para a criação dos sketch wireframes e protótipos.<br>
-            <Strong>Objetivo dos Testes:</Strong> Validar se a solução Tripsync consegue resolver as dores identificadas, principalmente as relacionadas ao estresse e ao desperdício de tempo na organização do roteiro.
-            </p>
-            <h2>Descobertas e Iterações</h2>
-            <img src="assets/Descobertas e Iterações.png" alt="Mapa da Jornada do Usuário">
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-value">+45%</div>
-                    <div class="metric-label">Taxa de Conversão</div>
+        <section class="card" style="background-color: #f8fafc; border-left: 4px solid var(--accent);">
+            <h2>Projeção de Impacto e KPIs</h2>
+            <p>Com o produto em fase de transição para alta fidelidade, as métricas de sucesso foram arquitetadas para validar a eficiência técnica da interface e o retorno direto para o negócio:</p>
+            <div class="grid-2" style="margin-top: 1.5rem;">
+                <div>
+                    <h3 style="margin-top: 0;">Retenção de Iniciantes</h3>
+                    <p>Meta projetada de redução de churn no primeiro trimestre em 20%, eliminando a dependência do instrutor físico através do mapeamento claro de treinos.</p>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">-30%</div>
-                    <div class="metric-label">Churn no Onboarding</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">100%</div>
-                    <div class="metric-label">Conformidade WCAG AA</div>
+                <div>
+                    <h3 style="margin-top: 0;">Otimização Operacional</h3>
+                    <p>Projeção de queda de 30% no tempo gasto pela equipe com tarefas repetitivas, redirecionando o fluxo de trabalho para o suporte estratégico.</p>
                 </div>
             </div>
         </section>
 
         <section style="margin-top: 5rem; margin-bottom: 2rem; text-align: center;">
             <h2 style="border: none; margin-bottom: 0.5rem;">Gostou do projeto?</h2>
-            <a href="mailto:anabea.reis220@gmail.com" class="btn-primary">Entre em Contato</a>
+            <p style="margin-bottom: 2rem;">Entre em contato para discutirmos arquitetura de informação e design focado em conversão.</p>
+            <a href="https://wa.me/5591981633033" class="btn-primary">Fale Comigo</a>
         </section>
-    </div>
+
+    </main>
 
     <footer>
-        <p>&copy; 2026 Alexandre Luiz da Cunha Reis. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Ana Beatriz da Cunha Reis. Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>
